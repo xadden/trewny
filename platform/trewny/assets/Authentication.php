@@ -5,7 +5,7 @@
  * 
  */
 
-namespace frontend\assets;
+namespace trewny\assets;
 
 use yii\web\AssetBundle;
 

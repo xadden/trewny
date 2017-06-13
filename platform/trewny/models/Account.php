@@ -5,7 +5,7 @@
  * 
  */
 
-namespace frontend\models;
+namespace trewny\models;
 
 use Yii;
 

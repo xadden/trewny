@@ -5,13 +5,12 @@
  * 
  */
 
-namespace frontend\controllers;
+namespace trewny\controllers;
 
-use frontend\models\Account;
 use Yii;
 use yii\filters\AccessControl;
 //-
-use frontend\models\forms\Authentication;
+use trewny\models\forms\Authentication;
 
 /**
  * @author André Echevarria <echevarriandre@gmail.com>

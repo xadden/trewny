@@ -1,6 +1,6 @@
 {
-    "name": "xadden/template",
-    "description": "This is a template",
+    "name": "xadden/trewny",
+    "description": "Bookmark Website for Trewny",
     "keywords": [],
     "homepage": "http://pt",
     "type": "project",
@@ -35,9 +35,9 @@
         "yii\\composer\\Installer::postCreateProject": {
             "setPermission": [
                 {
-                    "plataform/frontend/runtime": "0777",
+                    "plataform/trewny/runtime": "0777",
                     "plataform/console/runtime": "0777",
-                    "web/frontend/assets": "0777",
+                    "web/trewny/assets": "0777",
                     "plataform/yii": "0755"
                 }
             ]

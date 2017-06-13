@@ -5,12 +5,12 @@
  * 
  */
 
-namespace frontend\models\forms;
+namespace trewny\models\forms;
 
 use Yii;
 use yii\base\Model;
 //-
-use frontend\models\Account;
+use trewny\models\Account;
 
 /**
  * @author André Echevarria <echevarriandre@gmail.com>

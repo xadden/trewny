@@ -1,7 +1,7 @@
 <?php
 
 use yii\helpers\Html;
-use frontend\assets\Authentication;
+use trewny\assets\Authentication;
 
 /** @var $this yii\web\View */
 Authentication::register($this);

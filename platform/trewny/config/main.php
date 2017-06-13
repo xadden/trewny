@@ -6,9 +6,9 @@ if (is_file(__DIR__ . '/params.php')) {
 }
 
 $config = [
-    'id' => 'frontend',
+    'id' => 'trewny',
     'basePath' => dirname(__DIR__),
-    'controllerNamespace' => 'frontend\controllers',
+    'controllerNamespace' => 'trewny\controllers',
     'defaultRoute' => 'dashboard',
     'components' => [
         'i18n' => [
@@ -23,7 +23,7 @@ $config = [
         'urlManager' => ['enablePrettyUrl' => true, 'showScriptName' => false],
         'request' => ['cookieValidationKey' => '485hfsdjvsd345dgjwFBgthrSDf'],
         'user' => [
-            'identityClass' => 'frontend\models\Account',
+            'identityClass' => 'trewny\models\Account',
             'enableAutoLogin' => true,
             'loginUrl' => ['dashboard/login']
         ],

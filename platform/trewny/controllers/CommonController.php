@@ -5,7 +5,7 @@
  * 
  */
 
-namespace frontend\controllers;
+namespace trewny\controllers;
 
 use yii\filters\AccessControl;
 use yii\web\Controller;
