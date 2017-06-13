@@ -27,7 +27,6 @@ class m170613_205445_init_schema extends Migration
      */
     public function down()
     {
-        echo "m170613_205445_init_schema cannot be reverted.\n";
-        return false;
+        $this->dropTable('Account');
     }
 }
