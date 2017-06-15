@@ -17,9 +17,9 @@ final class MainBundle extends AssetBundle {
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-        '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css',
-        'css/main.php',
-        'css/style.php',
+        '//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css',
+        'css/main.css',
+        'css/style.css',
     ];
     public $js = [
     ];
@@ -28,7 +28,7 @@ final class MainBundle extends AssetBundle {
         'yii\web\YiiAsset',
         'yii\web\JqueryAsset',
         'yii\bootstrap\BootstrapAsset',
-        '//yii\bootstrap\BootstrapPluginAsset'
+        'yii\bootstrap\BootstrapPluginAsset'
     ];
 
 //    public function __construct($config = []) {

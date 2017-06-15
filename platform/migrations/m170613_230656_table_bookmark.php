@@ -17,7 +17,7 @@ class m170613_230656_table_bookmark extends Migration {
             'id' => $this->primaryKey(),
             'title' => $this->string()->notNull(),
             'link' => $this->string()->notNull(),
-            'image' => $this->string()->notNull()
+            'image' => $this->string()
         ], 'ENGINE = InnoDB CHARACTER SET utf8 COLLATE utf8_unicode_ci');
     }
 

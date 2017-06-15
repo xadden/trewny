@@ -7,6 +7,7 @@
 
 namespace trewny\controllers;
 
+use trewny\models\Bookmark;
 use Yii;
 use yii\filters\AccessControl;
 //-
@@ -47,7 +48,8 @@ final class DashboardController extends CommonController {
      * @return string
      */
     public function actionIndex(): string {
-        return $this->render('index');
+        $bookmarks = Bookmark::find()->all();
+        return $this->render('index', ['bookmarks' => $bookmarks]);
     }
 
     /**

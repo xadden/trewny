@@ -1,3 +1,79 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+
 body {
-    background-color: darkred;
+    font-family: 'Lato', Calibri, Arial, sans-serif;
+}
+
+*, *:after, *:before { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+body, html { font-size: 100%; padding: 0; margin: 0;}
+
+.cbp-af-header {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10000;
+    height: 90px;
+    overflow: hidden;
+    -webkit-transition: height 0.3s;
+    -moz-transition: height 0.3s;
+    transition: height 0.3s;
+}
+
+.cbp-af-header .cbp-af-inner {
+    width: 90%;
+    max-width: 69em;
+    margin: 0 auto;
+    padding: 0 1.875em;
+}
+
+.cbp-af-header h1,
+.cbp-af-header nav {
+    display: inline-block;
+    position: relative;
+}
+
+/* We just have one-lined elements, so we'll center the elements with the line-height set to the height of the header */
+.cbp-af-header h1,
+.cbp-af-header nav a {
+    line-height: 90px;
+}
+
+.cbp-af-header h1 {
+    color: #337ab7;
+    letter-spacing: 4px;
+    font-size: 2em;
+    margin: 0;
+    float: left;
+    font-weight: bold;
+}
+
+.cbp-af-header nav {
+    float: right;
+}
+
+.cbp-af-header nav a {
+    color: #aaa;
+    font-weight: 700;
+    margin: 0 0 0 20px;
+    font-size: 1.1em;
+}
+
+.cbp-af-header h1,
+.cbp-af-header nav a {
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.cbp-af-header nav a {
+    text-decoration: none;
+}
+
+#nav a:hover {
+    color: #333;
+}
+
+#nav .active {
+    color: #337ab7;
 }
