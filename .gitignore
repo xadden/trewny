@@ -29,3 +29,5 @@ phpunit.phar
 # vagrant runtime
 /.vagrant
 vagrant.config.lock
+ubuntu*
+VagrantFile
