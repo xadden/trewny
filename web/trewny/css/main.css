@@ -18,11 +18,12 @@ body, html { font-size: 100%; padding: 0; margin: 0;}
     -webkit-transition: height 0.3s;
     -moz-transition: height 0.3s;
     transition: height 0.3s;
+    background-color: white;
 }
 
 .cbp-af-header .cbp-af-inner {
     width: 90%;
-    max-width: 69em;
+    max-width: 80%;
     margin: 0 auto;
     padding: 0 1.875em;
 }

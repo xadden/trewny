@@ -20,6 +20,7 @@ final class MainBundle extends AssetBundle {
         '//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css',
         'css/main.css',
         'css/style.css',
+        'css/set2.css',
     ];
     public $js = [
     ];

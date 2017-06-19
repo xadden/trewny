@@ -48,7 +48,7 @@ final class DashboardController extends CommonController {
      * @return string
      */
     public function actionIndex(): string {
-        $bookmarks = Bookmark::find()->all();
+        $bookmarks = Bookmark::find()->where(['idAccount' => Yii::$app->user->id])->all();
         return $this->render('index', ['bookmarks' => $bookmarks]);
     }
 
