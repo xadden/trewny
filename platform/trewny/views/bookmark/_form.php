@@ -2,11 +2,15 @@
 
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
+use kartik\color\ColorInput;
 
 /* @var $this \yii\web\View */
 
 $form = new ActiveForm();
 $form = ActiveForm::begin(['enableClientValidation' => false]);
+
+$this->registerCssFile("@web/css/crud.css", ['depends' => 'trewny\assets\MainBundle']);
+//$this->registerCss('span#bookmark-color-cont.input-group-html5.input-group-addon { border: 0; } ');
 ?>
 
 <div class="container">
@@ -17,8 +21,14 @@ $form = ActiveForm::begin(['enableClientValidation' => false]);
         </div>
 
         <div class="col-sm-6">
-            <!-- Color & image -->
-            <?= $form->field($model, 'color')->textInput(['placeholder' => '#d13131', 'class' => 'form-input']) ?>
+            <?=
+            $form->field($model, 'color')->widget(ColorInput::classname(), [
+                'options' => ['placeholder' => 'Select color ...', 'class' => 'form-input'],
+                'pluginOptions' => [
+                    'allowEmpty' => false,
+                ]
+            ]);
+            ?>
         </div>
 
         <div class="col-sm-12">

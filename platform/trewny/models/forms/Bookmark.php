@@ -48,6 +48,13 @@ class Bookmark extends Model {
             $this->color = $this->bookmark->color ?: null;
         }
     }
+    
+    /**
+     * @inheritdoc
+     */
+    public function attributeLabels() {
+        return $this->bookmark ? $this->bookmark->attributeLabels() : (new ModelBookmark())->attributeLabels();
+    }
 
     /**
      * @return bool

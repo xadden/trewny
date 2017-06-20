@@ -4,6 +4,8 @@ use yii\helpers\Url;
 use yii\helpers\Html;
 use trewny\assets\MainBundle;
 
+/* @var $this yii\web\View */
+
 $title = $this->params['title'] ?? 'trewny';
 $tab = $this->params['tab'] ?? 'home';
 
@@ -28,8 +30,8 @@ $this->beginPage();
     <body class="loaded">
         <?php $this->beginBody() ?>
 
-        <div class="cbp-af-header cbp-af-header-shrink">
-            <div class="cbp-af-inner">
+        <div class="header">
+            <div class="inner">
                 <h1>trewny</h1>
                 <nav id="nav">
                     <a class="<?= $tab == 'home' ? 'active' : '' ?>" href="<?= Url::to(['dashboard/index']) ?>">home</a>

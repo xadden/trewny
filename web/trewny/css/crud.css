@@ -1,0 +1,95 @@
+* {
+    border: 0;
+}
+
+body {
+    background: #235580;
+}
+
+.header {
+    background: rgba(0,0,0,0.06);
+}
+
+.header h1 {
+    color: white;
+}
+
+.header nav a {
+    color: rgba(0,0,0,0.4);
+}
+
+#nav .active {
+    color: white;
+}
+
+#nav a:hover {
+    color: rgba(0,0,0,0.8);
+}
+
+#nav .active:hover {
+    color: rgba(255,255,255,0.7);
+}
+
+label {
+    color: white;
+    font-size: 16px;
+    margin-left: 30px;
+}
+
+/* Form styles */
+.form-input {
+    width:400px;
+    padding-left: 40px;
+}
+
+.form-input:focus {
+    background-color: #286192;
+    outline: none;
+}
+
+.form-input::placeholder {
+    color: rgba(255,255,255,0.6);
+}
+
+input, label {
+    display:block;
+}
+
+.form-button {
+    position: relative;
+    top: 70px;
+    width: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-button:hover {
+    background-color: #286192;
+}
+
+.form-button, .form-input {
+    border: 0;
+    background-color: #337ab7;
+    height: 50px;
+    border-radius: 2em;
+    font-weight: bold;
+    font-size: 20px;
+    -webkit-transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease;
+    color: white;
+}
+
+.input-group-addon {
+    background: #337ab7;
+    border: 0;
+    border-right: 0;
+}
+
+span#bookmark-color-cont  { 
+    border: 0 !important; /* important because of the default style also has !important */
+}
+
+.sp-replacer.sp-krajee {
+    background: transparent;
+}
