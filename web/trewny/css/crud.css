@@ -6,9 +6,8 @@ body {
     background: #235580;
 }
 
-.container {
+.wrapper {
     text-align: center;
-    top:30px;
 }
 
 .header {
@@ -40,9 +39,8 @@ label {
     font-size: 16px;
 }
 
-/* Form styles */
 .form-input {
-    width:400px;
+    width:100%;
     padding-left: 40px;
 }
 
@@ -63,10 +61,8 @@ input, label {
 .form-button {
     position: relative;
     top: 10px;
-    width: 200px;
+    width: 100%;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .form-button:hover {
@@ -92,7 +88,6 @@ input, label {
 .input-group-addon {
     background: #337ab7;
     border: 0;
-    border-right: 0;
 }
 
 .input-group-addon:focus {
@@ -114,7 +109,7 @@ span#bookmark-color-cont  {
 }
 
 input#bookmark-color {
-    width:340px;
+    width:380px;
 }
 
 div.file-caption-name {
@@ -147,7 +142,7 @@ div.file-caption-name {
 }
 
 div.file-caption-main {
-    width: 400px;
+    width: 440px;
 }
 
 .form-file-caption {
@@ -166,4 +161,78 @@ div.file-caption-main {
 
 div.file-input {
     max-width: 10px;
+}
+
+
+.table {
+    background-color: rgba(0,0,0,0.1);
+    color: white;
+    border-radius: 10px;
+}
+
+.table th {
+    text-align: center;
+}
+
+.table > thead > tr > td, .table > tbody > tr > td, .table > thead > tr > th  {
+    border: 0;
+}
+
+.summary {
+    color: white;
+}
+
+.table input {
+    background: rgba(0,0,0,0.1);
+    border: 0;
+    color: white;
+}
+
+.table input:focus {
+    box-shadow: none;
+}
+
+.table a {
+    color: white;
+}
+
+.table a:hover {
+    color: white;
+}
+
+.wrapper-view {
+    display: inline;
+    overflow:hidden;
+}
+
+.box {
+    float: left;
+}
+
+.box2 {
+    overflow:hidden;
+}
+
+.label-view {
+    color: white;
+    font-size: 20px;
+}
+
+.item-view {
+    margin: 10px;
+}
+
+.value-view {
+    background-color: #337ab7;
+    border-radius: 2em;
+    width: 500px;
+    height: 50px;
+    text-align: center;
+    color: white;
+}
+
+.value-text {
+    position: relative;
+    top: 25%;
+    transform: translateY(-50%);
 }

@@ -4,7 +4,7 @@
 
 $this->params = [
     'tab' => 'bookmark',
-    'title' => 'add bookmark',
+    'title' => 'update bookmark',
 ];
 
 ?>

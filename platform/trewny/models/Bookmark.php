@@ -6,6 +6,8 @@
 
 namespace trewny\models;
 
+use Yii;
+
 
 class Bookmark extends \common\models\db\Bookmark
 {
@@ -23,7 +25,7 @@ class Bookmark extends \common\models\db\Bookmark
             return null;
         }
 
-        $path = Yii::$app->params['data'] . DIRECTORY_SEPARATOR . 'bookmarks' . DIRECTORY_SEPARATOR . $bookmark->image;
+        $path = Yii::$app->params['data'] . DIRECTORY_SEPARATOR . 'bookmarks' . DIRECTORY_SEPARATOR . $this->image;
         if (!is_file($path)) {
             return null;
         }

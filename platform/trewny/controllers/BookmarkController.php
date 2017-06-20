@@ -7,6 +7,7 @@
 
 namespace trewny\controllers;
 
+use trewny\models\filters\Bookmarks;
 use Yii;
 use yii\filters\AccessControl;
 //-
@@ -36,8 +37,20 @@ final class BookmarkController extends CommonController {
      * @return string
      */
     public function actionIndex(): string {
-        $bookmarks = Bookmark::find()->all();
-        return $this->render('index', ['bookmarks' => $bookmarks]);
+        $filter = new Bookmarks();
+        return $this->render('index', ['filter' => $filter]);
+    }
+
+    public function actionView($id): string {
+        if (!($bookmark = Bookmark::findOne($id))) {
+            $this->redirect('index');
+        }
+
+        if ($bookmark->idAccount != Yii::$app->user->id) {
+            $this->redirect('index');
+        }
+
+        return $this->render('view', ['bookmark' => $bookmark]);
     }
     
     public function actionAdd() {
@@ -52,17 +65,49 @@ final class BookmarkController extends CommonController {
         return $this->render('add', ['model' => $model]);
     }
     
-    public function actionUpdate(int $id): string {
-        return $this->render('update');
+    public function actionUpdate(int $id) {
+        if (!($bookmark = Bookmark::findOne($id))) {
+            $this->redirect('index');
+        }
+
+        if ($bookmark->idAccount != Yii::$app->user->id) {
+            $this->redirect('index');
+        }
+
+        $model = new FormBookmark($bookmark);
+
+        if ($model->load(Yii::$app->request->post())) {
+            if ($model->save()) {
+                return $this->redirect(['bookmark/view', 'id' => $model->id]);
+            }
+        }
+
+        return $this->render('update', ['model' => $model]);
     }
-    
-    public function actionDelete(int $id): string {
-        $bookmark = Bookmark::findOne($id)->delete();
+
+    /**
+     * @param int $id
+     */
+    public function actionDelete(int $id) {
+        if(!($bookmark = Bookmark::findOne($id))) {
+            return $this->redirect('index');
+        }
+
+        if ($bookmark->idAccount != Yii::$app->user->id) {
+            $this->redirect('index');
+        }
+
+        $bookmark->delete();
+
         return $this->redirect('index');
     }
     
     public function actionImage($id) {
         $bookmark = Bookmark::findOne($id);
+
+        if ($bookmark->idAccount != Yii::$app->user->id) {
+            $this->redirect('index');
+        }
 
         $path = $bookmark->pathImage();
         if (is_readable($path)) {
