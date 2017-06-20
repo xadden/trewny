@@ -33,4 +33,10 @@ class Bookmark extends \common\models\db\Bookmark
         return $path;
     }
 
+    public function afterDelete() {
+        $name = $this->image;
+
+        unlink(Yii::$app->params['data'] . DIRECTORY_SEPARATOR . 'bookmarks' . DIRECTORY_SEPARATOR . $name);
+    }
+
 }

@@ -74,12 +74,9 @@ class Bookmark extends Model {
 
             $this->bookmark->title = $this->title;
 
-            echo $this->link;
-            echo strpos($this->link, 'https://');
-
-            if ((strpos($this->link, 'https://')) == 0) {
+            if ((substr_count($this->link, 'https://'))) {
                 $this->bookmark->link = $this->link;
-            } else if ((strpos($this->link, 'http://')) == 0) {
+            } else if ((substr_count($this->link, 'http://'))) {
                 $this->bookmark->link = $this->link;
             } else {
                 $this->bookmark->link = 'https://' . $this->link;

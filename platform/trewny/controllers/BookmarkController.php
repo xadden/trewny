@@ -41,8 +41,9 @@ final class BookmarkController extends CommonController {
         return $this->render('index', ['filter' => $filter]);
     }
 
-    public function actionView($id): string {
-        if (!($bookmark = Bookmark::findOne($id))) {
+    public function actionView(int $id) {
+        $bookmark = Bookmark::findOne($id);
+        if (!$bookmark) {
             $this->redirect('index');
         }
 
@@ -102,7 +103,7 @@ final class BookmarkController extends CommonController {
         return $this->redirect('index');
     }
     
-    public function actionImage($id) {
+    public function actionImage(int $id) {
         $bookmark = Bookmark::findOne($id);
 
         if ($bookmark->idAccount != Yii::$app->user->id) {
