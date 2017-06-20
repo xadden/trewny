@@ -6,6 +6,11 @@ body {
     background: #235580;
 }
 
+.container {
+    text-align: center;
+    top:30px;
+}
+
 .header {
     background: rgba(0,0,0,0.06);
 }
@@ -33,7 +38,6 @@ body {
 label {
     color: white;
     font-size: 16px;
-    margin-left: 30px;
 }
 
 /* Form styles */
@@ -45,6 +49,7 @@ label {
 .form-input:focus {
     background-color: #286192;
     outline: none;
+    box-shadow: none;
 }
 
 .form-input::placeholder {
@@ -57,7 +62,7 @@ input, label {
 
 .form-button {
     position: relative;
-    top: 70px;
+    top: 10px;
     width: 200px;
     display: block;
     margin-left: auto;
@@ -66,6 +71,10 @@ input, label {
 
 .form-button:hover {
     background-color: #286192;
+}
+
+.form-button:focus {
+    background-color: #0d395e;
 }
 
 .form-button, .form-input {
@@ -86,10 +95,75 @@ input, label {
     border-right: 0;
 }
 
+.input-group-addon:focus {
+    border-shadow: 0;
+}
+
 span#bookmark-color-cont  { 
     border: 0 !important; /* important because of the default style also has !important */
+    border-top-left-radius: 2em;
+    border-bottom-left-radius: 2em;
 }
 
 .sp-replacer.sp-krajee {
     background: transparent;
+}
+
+.error-form {
+    color: white;
+}
+
+input#bookmark-color {
+    width:340px;
+}
+
+div.file-caption-name {
+    position: relative;
+    overflow: visible;
+    top: 5px;
+}
+
+.form-file-browse  {
+    background-color: #337ab7;
+    height: 50px;
+    border-radius: 2em;
+    font-weight: bold;
+    font-size: 20px;
+    -webkit-transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease;
+    color: white;
+    width: 40px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    
+}
+
+.form-file-browse:hover {
+    background-color: #286192;
+}
+
+.form-file-browse > .glyphicon {
+    top: 10px;
+}
+
+div.file-caption-main {
+    width: 400px;
+}
+
+.form-file-caption {
+    border: 0;
+    background-color: #337ab7;
+    height: 50px;
+    border-radius: 2em;
+    font-weight: bold;
+    font-size: 20px;
+    -webkit-transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease;
+    color: white;
+    width:400px;
+    padding-left: 40px;
+}
+
+div.file-input {
+    max-width: 10px;
 }

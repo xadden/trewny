@@ -13,8 +13,8 @@ use yii\helpers\Url;
         $i = 0;
         foreach ($bookmarks as $bookmark) { ?>
             <div style="background-color:<?= $bookmark->color ?: 'rgba(0, 0, 0, 0)' ?>" class="box">
-                <img class="icon-center" src="<?= $bookmark->image ? Url::to('@web/images/bookmarks/' . $bookmark->image) : Url::to('@web/images/picture.png    ') ?>">
-                <a href="<?= $bookmark->link ?>"><?= $bookmark->title ?></a>
+                <img class="icon-center" src="<?= $bookmark->image ? Url::to(['bookmark/image', 'id' => $bookmark->id]) : Url::to('@web/images/picture.png') ?>">
+                <a href="<?= Url::to($bookmark->link) ?>"><?= $bookmark->title ?></a>
             </div>
             <?php
             $i++;

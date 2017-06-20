@@ -3,37 +3,54 @@
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
 use kartik\color\ColorInput;
+use kartik\file\FileInput;
 
 /* @var $this \yii\web\View */
 
-$form = new ActiveForm();
-$form = ActiveForm::begin(['enableClientValidation' => false]);
+$form = ActiveForm::begin([
+            'enableClientValidation' => false,
+            'fieldConfig' => [
+                'errorOptions' => ['class' => 'error-form'],
+            ],
+        ]);
 
 $this->registerCssFile("@web/css/crud.css", ['depends' => 'trewny\assets\MainBundle']);
-//$this->registerCss('span#bookmark-color-cont.input-group-html5.input-group-addon { border: 0; } ');
 ?>
 
 <div class="container">
-    <div class="col-sm-12">
-        <div class="col-sm-6">
-            <?= $form->field($model, 'title')->textInput(['placeholder' => 'youtube', 'type' => 'text', 'class' => 'form-input']) ?>
-            <?= $form->field($model, 'link')->textInput(['placeholder' => 'www.youtube.com', 'class' => 'form-input']) ?>
-        </div>
+    <div style="display:inline-block">
+        <?= $form->field($model, 'title')->textInput(['placeholder' => 'youtube', 'type' => 'text', 'class' => 'form-input']) ?>
+        <?= $form->field($model, 'link')->textInput(['placeholder' => 'youtube.com', 'class' => 'form-input']) ?>
 
-        <div class="col-sm-6">
-            <?=
-            $form->field($model, 'color')->widget(ColorInput::classname(), [
-                'options' => ['placeholder' => 'Select color ...', 'class' => 'form-input'],
-                'pluginOptions' => [
-                    'allowEmpty' => false,
-                ]
-            ]);
-            ?>
-        </div>
+        <?=
+        $form->field($model, 'color')->widget(ColorInput::classname(), [
+            'showDefaultPalette' => false,
+            'options' => ['placeholder' => 'select a color', 'class' => 'form-input'],
+            'pluginOptions' => [
+                'showPalette' => false,
+                'allowEmpty' => false,
+                'showAlpha' => false,
+            ]
+        ]);
+        ?>
 
-        <div class="col-sm-12">
-            <?= Html::submitButton('add', ['class' => 'form-button']) ?>
-        </div>
+        <?=
+        $form->field($model, 'image')->widget(FileInput::classname(), [
+            'options' => ['accept' => 'image/*'],
+            'pluginOptions' => [
+                'showUpload' => false,
+                'showPreview' => false,
+                'showRemove' => false,
+                'browseClass' => 'form-file-browse',
+                'browseLabel' => '',
+                'captionClass' => 'form-file-caption',
+            ]
+        ]);
+        ?>
+
+
+
+        <?= Html::submitButton('add', ['class' => 'form-button']) ?>
     </div>
 </div>
 

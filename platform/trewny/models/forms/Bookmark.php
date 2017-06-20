@@ -9,6 +9,7 @@ namespace trewny\models\forms;
 
 use Yii;
 use yii\base\Model;
+use yii\web\UploadedFile;
 //-
 use trewny\models\Bookmark as ModelBookmark;
 
@@ -29,13 +30,17 @@ class Bookmark extends Model {
     /** @var string */
     public $color;
 
+    /** @var \yii\web\UploadedFile */
+    public $image;
+
     /**
      * @inheritdoc
      */
     public function rules(): array {
         return [
             [['title', 'link'], 'required', 'message' => 'Can\'t be empty'],
-            [['color', 'title', 'link'], 'string']
+            [['color', 'title', 'link'], 'string'],
+            [['image'], 'file', 'extensions' => 'png, jpg, jpeg'],
         ];
     }
 
@@ -48,7 +53,7 @@ class Bookmark extends Model {
             $this->color = $this->bookmark->color ?: null;
         }
     }
-    
+
     /**
      * @inheritdoc
      */
@@ -68,9 +73,43 @@ class Bookmark extends Model {
             $transaction = $this->bookmark->getDb()->beginTransaction();
 
             $this->bookmark->title = $this->title;
-            $this->bookmark->link = $this->link;
+
+            if (strpos($this->link, 'https://')) {
+                $this->bookmark->link = $this->link;
+            } else if (strpos($this->link, 'http://')) {
+                $this->bookmark->link = $this->link;
+            } else {
+                $this->bookmark->link = 'https://' . $this->link;
+            }
+
             $this->bookmark->color = $this->color ?: null;
             $this->bookmark->idAccount = Yii::$app->user->id;
+
+            if (($image = UploadedFile::getInstance($this, 'image'))) {
+                $end = explode('.', $image->name);
+                $name = strtoupper(Yii::$app->security->generateRandomString()) . '.' . end($end);
+
+                $base = Yii::$app->params['data'] . '/bookmarks/';
+                if (!is_dir($base)) {
+                    mkdir($base, 0777, true);
+                }
+
+                $this->bookmark->image = $name;
+                $destino = $base . '/' . $name;
+
+                try {
+                    if (!$image->saveAs($destino)) {
+                        $transaction->rollBack();
+                        $this->addError('image', 'An error ocurred while uploading the image');
+
+                        return false;
+                    }
+                } catch (\yii\base\ErrorException $ex) {
+                    $this->addError('foto', 'An error ocurred while uploading the image');
+                    $transaction->rollBack();
+                    return false;
+                }
+            }
 
             if ($this->bookmark->save()) {
                 $transaction->commit();
@@ -79,7 +118,6 @@ class Bookmark extends Model {
 
             $transaction->rollBack();
             return false;
-
         }
         return false;
     }

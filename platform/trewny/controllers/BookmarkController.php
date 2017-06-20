@@ -45,7 +45,7 @@ final class BookmarkController extends CommonController {
         
         if ($model->load(Yii::$app->request->post())) {
             if ($model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
+                return $this->redirect(['dashboard/index']);
             }
         }
 
@@ -59,5 +59,21 @@ final class BookmarkController extends CommonController {
     public function actionDelete(int $id): string {
         $bookmark = Bookmark::findOne($id)->delete();
         return $this->redirect('index');
+    }
+    
+    public function actionImage($id) {
+        $bookmark = Bookmark::findOne($id);
+
+        $path = $bookmark->pathImage();
+        if (is_readable($path)) {
+            $finfo = finfo_open(FILEINFO_MIME_TYPE);
+            $mime = finfo_file($finfo, $path);
+            finfo_close($finfo);
+
+            header('Content-Type: ' . $mime);
+            header('Content-Length: ' . filesize($path));
+            readfile($path);
+        }
+        Yii::$app->end();
     }
 }
