@@ -7,7 +7,7 @@ use yii\helpers\Url;
 
 ?>
 
-<div class="container">
+<div class="wrapper">
     <?php
     if ($bookmarks) {
         $i = 0;

@@ -207,6 +207,8 @@ div.file-input {
 
 .box {
     float: left;
+    width: 300px;
+    height: 300px;
 }
 
 .box2 {
