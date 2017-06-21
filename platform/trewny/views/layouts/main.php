@@ -45,7 +45,7 @@ $this->beginPage();
     <?php if (isset($this->params['actions'])) { ?>
         <div class="dropdown">
             <div class="btn-group actions">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Actions
                 </button>
 

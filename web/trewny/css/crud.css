@@ -211,6 +211,10 @@ div.file-input {
     height: 300px;
 }
 
+.box a {
+    line-height: 300px;
+}
+
 .box2 {
     overflow:hidden;
 }
