@@ -5,6 +5,8 @@ use yii\helpers\Url;
 
 /* var $bookmarks */
 
+$this->params['title'] = 'Home'
+
 ?>
 
 <div class="wrapper">

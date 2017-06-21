@@ -12,6 +12,7 @@ use Yii;
 use yii\filters\AccessControl;
 //-
 use trewny\models\forms\Authentication;
+use trewny\models\forms\Signup;
 
 /**
  * @author André Echevarria <echevarriandre@gmail.com>
@@ -26,7 +27,7 @@ final class DashboardController extends CommonController {
             'access' => [
                 'class' => AccessControl::className(),
                 'rules' => [
-                    ['allow' => true, 'roles' => ['?'], 'actions' => ['login', 'error']],
+                    ['allow' => true, 'roles' => ['?'], 'actions' => ['login', 'register', 'error']],
                     ['allow' => true, 'roles' => ['@'], 'actions' => ['logout', 'error', 'index']],
                 ]
             ]
@@ -68,6 +69,22 @@ final class DashboardController extends CommonController {
         }
 
         return $this->render('login', ['model' => $model]);
+    }
+
+    public function actionRegister() {
+        $this->layout = 'login';
+
+        $model = new Signup();
+        if ($model->load(Yii::$app->request->post())) {
+            if($model->validate()) {
+                if ($model->register()) {
+                    return $this->redirect(['index']);
+                }
+            }
+        }
+
+
+        return $this->render('register', ['model' => $model]);
     }
 
     /**

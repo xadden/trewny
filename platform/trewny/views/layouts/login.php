@@ -14,7 +14,7 @@ $this->beginPage();
     <head>
         <meta http-equiv="content-type" content="text/html; charset=UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Login</title>
+        <title><?= $this->params['title'] . ' - Trewny'?></title>
 
         <link rel="shortcut icon" type="image/x-icon" href="<?= Url::to('@web/images/favicon.ico?>') ?>"/>
 

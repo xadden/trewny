@@ -31,7 +31,7 @@ class Authentication extends Model {
      */
     public function rules(): array {
         return [
-            [['username', 'password'], 'required', 'message' => 'Can\'t be empty'],
+            [['username', 'password'], 'required', 'message' => 'All fields required'],
             [['username'], 'string']
         ];
     }
@@ -48,8 +48,7 @@ class Authentication extends Model {
             }
         }
 
-        $this->addError('password', 'Unknown username or wrong password');
-
+        $this->addError('password', 'Invalid credentials');
         return false;
     }
 

@@ -20,7 +20,7 @@ $this->beginPage();
         <meta http-equiv="content-type" content="text/html; charset=UTF-8">
         <meta charset="UTF-8">
 
-        <title><?= $title ?></title>
+        <title><?= $title . ' - Trewny'?></title>
         <link rel="shortcut icon" type="image/x-icon" href="<?= Url::to('@web/images/favicon.ico') ?>"/>
 
         <?= Html::csrfMetaTags() ?>

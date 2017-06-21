@@ -22,6 +22,7 @@ final class MainBundle extends AssetBundle {
         'css/style.css',
     ];
     public $js = [
+        'js/script.js'
     ];
 
     public $depends = [
