@@ -67,7 +67,7 @@ class Signup extends Model {
         $account = new Account();
 
         $account->username = $this->username;
-        $account->password = Yii::$app->security->generatePasswordHash($this->password);
+        $account->password = $this->password;
         $account->email = $this->email;
 
         if($account->save()) {
